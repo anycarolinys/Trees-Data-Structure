@@ -1,0 +1,79 @@
+Operações numa ÁRVORE BINÁRIA:
+- Criação da árvore
+- Inserção/remoção de um elemento
+- Acesso a um elemento
+- Destruição da árvore
+
+Alocação estática:
+- Uso de um array
+- Usa 2 funções para retornar a posição 
+dos filhos à esquerda e à direita de um pai
+filho_esquerda(pai) = 2 * pai + 1;
+filho_direita(pai) = 2 * pai + 1;
+*Esse tipo de representação só é útil quando
+é conhecido o tamanho da árvore e quando a mesma
+é uma árvore binária completa.
+** Uma árvore binária é completa se, dada uma 
+árvore com n níveis, todas as folhas estão no
+nível n ou n-1.
+
+Alocação dinâmica:
+Cada nó da árvore são ponteiros alocados
+dinamicamente os quais apontam para as subávores.
+
+*** O primeiro nó da árvore será um ponteiro para 
+ponteiro. Assim, fica mais fácil mudar quem é a 
+raiz da árvore se necessário.
+
+Observações: 
+- Os nós de uma árvore binária podem ter 0, 1 ou 2 filhos.
+- Seja x um nó de uma árvore, um descendente de x é qualquer nó que possa ser alcançado pela iteração das instruções x = x->left e x = x->right em qualquer ordem. Suponhe-se, nesse caso, que essas instruções só podem ser iteradas enquanto x for diferente de NULL.
+- O nó x->left é a raiz da subárvore esquerda de x e x->right é a raiz da subárvore direita de x.
+- A ALTURA de uma árvore corresponde a maior distância entre a raiz e qualquer nó
+
+Percorrendo uma árvore binária:
+É preciso garantir que cada nó seja acessado uma única vez, o que gera uma sequência linear de nós cuja ordem depende de como a árvore foi percorrida.
+
+As formas de percorrer uma árvore são:
+- Pré ordem:
+Visita a raiz , o nó da esquerda e o nó da direita
+- Em ordem:
+Visita o nó da esquerda, a raiz e o nó da direita
+- Pós ordem:
+Visita o nó da esquerda, o da direita e a raiz
+
+
+ÁRVORE BINÁRIA DE BUSCA:
+É um tipo de árvore binária onde cada nó possui um valor (chave) associado a ele, o qual determina a posição do nó na árvores. 
+Observações:
+- Não devem haver chaves repetidas
+- Para cada nó pai:
+    - Todos os valores da subárvore esquerda são menores do que o nó pai.
+    - Para a subárvore direita, todos os valores devem ser maiores.
+- Assim como as árvores binárias generalizam a ideia de listas encadeadas, árvores binárias de busca generaliam a ideia de listas encadeadas crescentes.
+
+Inserção e remoção:
+- As propriedades da árvore binária de busca devem ser mantidas
+
+Para inserir um valor 'v' na árvore binária de busca:
+    - primeiro compare com a raiz
+    - 'v' é menor do que a raiz: vá para a subárvore esquerda
+
+    - 'v' é maior do que a raiz: vá para a subárvore direita     
+
+    - aplique o método recursivamente (pode ser feito sem recursão)
+Também existe o caso onde a inserção é feita em uma árvore binária que está vazia.
+
+Para remover um valor 'v' na árvore binária de busca existem 3 possibilidades:
+    1. nó folha (sem filhos)
+    Basta fazer o nó anterior a ele apontar para NULL
+    2. nó com 1 filho
+    O nó anterior ao nó a ser removido aponta para o único filho deste nó
+    3. nó com 2 filhos
+    Deve-se realocar o nó folha da subárvore esquerda que está mais à direita para a posição do nó a ser removido
+    Obs.: o nó a ser realocado é, indubitavelmente, menor que qualquer elemento da subárvore direita
+
+Para consultar um valor 'v' na árvore binária de busca:
+    - Compara-se com a raiz
+    - 'v' é menor que a raiz: vá para a subárvore esquerda
+    - 'v' é maior que a raiz: vá para a subárvore direita

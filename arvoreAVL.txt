@@ -1,0 +1,37 @@
+Árvores AVL (Aldelson-Velskii e Landis)
+É uma árvore binária de busca balanceada. São árvores que minimizam o número de comparações efetuadas no pior caso para uma busca com chaves de probabilidades de ocorrências idênticas.
+Dizemos que uma árvore é perfeitamente balanceada se ela tiver apenas a altura mínima necessária para conter os seus nós.
+- Sabendo que o número máximo de elementos em uma árvore de altura h é no máximo [2^(h+1) - 1].
+- Portanto, para conter n nós uma árvore binária deve ter altura maior ou igual a log2(n) (logaritmo de n na base 2)
+
+Definição formal: uma árvore é dita AVL-balanceada se ***para todo nó a altura entre suas duas subárvores diferir em, no máximo, uma unidade***. Essa diferença é chamada de fator de balanceamento.
+- Toda árvore perfeitamente balanceada é AVL, mas nem toda AVL é balanceada.
+
+Fator de balanceamento:
+É medido para cada nó da árvore e representado por um novo campo na estrutra de nós. Este valor é definido por:
+-1 se a subárvore da esquerda for uma unidade mais alta
+0 se o nó tiver duas subárvores de mesma altura
+1 caso seja a subárvore da direita a mais alta
+* O fator de balanceamento pode ser definido desta maneira ou pode ser, em outras implementações, calculado para cada nó representando literalmente a diferença de altura entre as subárvores.
+
+- A eficiência da busca em uma árvore binária depende do seu balanceamento
+
+Custo de inserção, busca e remoção em uma árvore binária:
+- Balanceada: O(log(n))
+- Não balanceada: O(n)
+
+A solução para o problema de balanceamento está em modificar as operações de inserção e remoção da árvore
+Exemplos de árvores balanceadas:
+- AVL
+- Árvore 2-3-4
+- Árvore rubro-negra
+
+Tipos de Rotação:
+- Simples:
+Ocorre entre um nó desbalanceado e seu filho, os quais fazem parte da mesma direção (esquerda/direita)
+
+- Duplas:
+Ocorre entre o nó desbalanceado e o filho, os quais estão na direção inversa ao pai.
+
+Remoção:
+É importante notar que REMOVER um nó da subárvore da DIREITA é equivalente a INSERIR um nó na subárvore da ESQUERDA, o contrário também vale. Portanto, ao remover também deve-se ter o cuidado do balanceamento.
